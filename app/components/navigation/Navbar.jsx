@@ -1,30 +1,81 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import NavLink from "./NavLink";
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
 const Navbar = () => {
+  const [navbarMoreMenuState, setNavbarMoreMenuState] = useState(false);
+
+  const navbarMoreMenu = () => {
+    console.log("tapp MoreMenu");
+    navbarMoreMenuState
+      ? setNavbarMoreMenuState(false)
+      : setNavbarMoreMenuState(true);
+  };
+
+  const navbarProfileMenu = () => {
+    console.log("tapp ProfileMenu");
+  };
+
   return (
     <>
       <div className="flex flex-row h-16 items-center p-4 bg-emerald-800 justify-between sm:justify-start sticky">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2.5}
-          stroke="currentColor"
-          className="w-6 h-6 flex sm:hidden text-neutral-50"
+        <button
+          onClick={navbarMoreMenu}
+          className="flex sm:hidden text-neutral-50"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
+          {!navbarMoreMenuState ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          )}
+        </button>
+
+        <div
+          id="moreMenuDropdown"
+          className={clsx(
+            {
+              "flex flex-col": navbarMoreMenuState,
+              hidden: !navbarMoreMenuState,
+            },
+            "absolute top-16 left-0 bg-emerald-800 p-2 rounded-br-3xl"
+          )}
+        >
+          <NavLink />
+        </div>
 
         <div className="sm:container sm:mx-auto flex flex-row justify-between">
           <Link href={"/"}>
-            <div className="flex flex-row items-center text-4xl tracking-tight text-neutral-50">
+            <div className="flex flex-row items-center text-4xl tracking-tight text-neutral-50 ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -42,17 +93,33 @@ const Navbar = () => {
               <div className="hidden sm:flex flex-row">AgritShub</div>
             </div>
           </Link>
-          <div className="hidden sm:flex flex-row">
-            <NavLink />
+          <div className="flex flex-row items-center">
+            <div className="hidden sm:flex flex-row">
+              <NavLink />
+            </div>
+            <div onClick={navbarProfileMenu} className="hidden sm:flex">
+              <Image
+                width={500}
+                height={500}
+                className="inline-block h-8 w-8 rounded-full ring-2 ring-white flex my-auto mx-4"
+                src="https://avatars.githubusercontent.com/u/144009672"
+                alt=""
+              />
+            </div>
           </div>
         </div>
-        <Image
-          width={500}
-          height={500}
-          class="inline-block h-8 w-8 rounded-full ring-2 ring-white flex sm:hidden my-auto"
-          src="https://avatars.githubusercontent.com/u/144009672"
-          alt=""
-        />
+        <button
+          onClick={navbarProfileMenu}
+          className="flex flex-row items-center sm:hidden"
+        >
+          <Image
+            width={500}
+            height={500}
+            className="inline-block h-8 w-8 rounded-full ring-2 ring-white flex my-auto"
+            src="https://avatars.githubusercontent.com/u/144009672"
+            alt=""
+          />
+        </button>
       </div>
     </>
   );

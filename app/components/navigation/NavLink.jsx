@@ -28,13 +28,6 @@ const NavLink = () => {
           </Link>
         );
       })}
-      <Image
-        width={500}
-        height={500}
-        class="inline-block h-8 w-8 rounded-full ring-2 ring-white flex ml-4 my-auto"
-        src="https://avatars.githubusercontent.com/u/144009672"
-        alt=""
-      />
     </>
   );
 };

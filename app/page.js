@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Navbar from "./components/navigation/Navbar";
+"use client";
 
 export default function Home() {
   // มีหน้าสำหรับโพสต์ข้อความ ปุ่มกดไลค์ แสดงความคิดเห็น แชร์โพสต์
