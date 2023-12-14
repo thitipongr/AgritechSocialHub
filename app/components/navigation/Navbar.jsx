@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import NavLink from "./NavLink";
-import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import ProfileImg from "../ProfileImg";
 
 const Navbar = () => {
   const [navbarMoreMenuState, setNavbarMoreMenuState] = useState(false);
@@ -18,7 +18,6 @@ const Navbar = () => {
   };
 
   const navbarProfileMenu = () => {
-    console.log("tapp ProfileMenu");
     navbarProfileMenuState
       ? setNavbarProfileMenuState(false)
       : setNavbarProfileMenuState(true);
@@ -104,22 +103,16 @@ const Navbar = () => {
             </div>
             <button
               onClick={navbarProfileMenu}
-              className="hidden sm:flex relative"
+              className="hidden sm:flex relative ml-4"
             >
-              <Image
-                width={500}
-                height={500}
-                className="inline-block h-8 w-8 rounded-full ring-2 ring-white flex my-auto mx-4"
-                src="https://avatars.githubusercontent.com/u/144009672"
-                alt=""
-              />
+              <ProfileImg />
               <div
                 className={clsx(
                   {
                     "flex flex-col": navbarProfileMenuState,
                     hidden: !navbarProfileMenuState,
                   },
-                  "absolute top-12 -right-6 bg-emerald-800 p-2 rounded-bl-3xl rounded-br-3xl"
+                  "absolute top-12 -right-9 bg-emerald-800 p-2 rounded-bl-3xl rounded-br-3xl"
                 )}
               >
                 <Link
@@ -145,13 +138,7 @@ const Navbar = () => {
           onClick={navbarProfileMenu}
           className="flex flex-row items-center sm:hidden"
         >
-          <Image
-            width={500}
-            height={500}
-            className="inline-block h-8 w-8 rounded-full ring-2 ring-white flex my-auto"
-            src="https://avatars.githubusercontent.com/u/144009672"
-            alt=""
-          />
+          <ProfileImg />
           <div
             className={clsx(
               {
@@ -170,7 +157,7 @@ const Navbar = () => {
               <p>Profile</p>
             </Link>
             <Link
-              href={"/profile"}
+              href={"/"}
               className={clsx("px-4 py-2 text-xl text-slate-50")}
             >
               <p>Logout</p>
