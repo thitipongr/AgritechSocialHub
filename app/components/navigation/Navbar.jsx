@@ -5,12 +5,13 @@ import NavLink from "./NavLink";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [navbarMoreMenuState, setNavbarMoreMenuState] = useState(false);
+  const [navbarProfileMenuState, setNavbarProfileMenuState] = useState(false);
 
   const navbarMoreMenu = () => {
-    console.log("tapp MoreMenu");
     navbarMoreMenuState
       ? setNavbarMoreMenuState(false)
       : setNavbarMoreMenuState(true);
@@ -18,7 +19,12 @@ const Navbar = () => {
 
   const navbarProfileMenu = () => {
     console.log("tapp ProfileMenu");
+    navbarProfileMenuState
+      ? setNavbarProfileMenuState(false)
+      : setNavbarProfileMenuState(true);
   };
+
+  const pathname = usePathname();
 
   return (
     <>
@@ -61,7 +67,6 @@ const Navbar = () => {
         </button>
 
         <div
-          id="moreMenuDropdown"
           className={clsx(
             {
               "flex flex-col": navbarMoreMenuState,
@@ -97,7 +102,10 @@ const Navbar = () => {
             <div className="hidden sm:flex flex-row">
               <NavLink />
             </div>
-            <div onClick={navbarProfileMenu} className="hidden sm:flex">
+            <button
+              onClick={navbarProfileMenu}
+              className="hidden sm:flex relative"
+            >
               <Image
                 width={500}
                 height={500}
@@ -105,9 +113,34 @@ const Navbar = () => {
                 src="https://avatars.githubusercontent.com/u/144009672"
                 alt=""
               />
-            </div>
+              <div
+                className={clsx(
+                  {
+                    "flex flex-col": navbarProfileMenuState,
+                    hidden: !navbarProfileMenuState,
+                  },
+                  "absolute top-12 -right-6 bg-emerald-800 p-2 rounded-bl-3xl rounded-br-3xl"
+                )}
+              >
+                <Link
+                  href={"/profile"}
+                  className={clsx("px-4 py-2 text-xl text-slate-50", {
+                    "bg-emerald-900 rounded-full": pathname === "/profile",
+                  })}
+                >
+                  <p>Profile</p>
+                </Link>
+                <Link
+                  href={"/"}
+                  className={clsx("px-4 py-2 text-xl text-slate-50")}
+                >
+                  <p>Logout</p>
+                </Link>
+              </div>
+            </button>
           </div>
         </div>
+
         <button
           onClick={navbarProfileMenu}
           className="flex flex-row items-center sm:hidden"
@@ -119,6 +152,30 @@ const Navbar = () => {
             src="https://avatars.githubusercontent.com/u/144009672"
             alt=""
           />
+          <div
+            className={clsx(
+              {
+                "flex flex-col": navbarProfileMenuState,
+                hidden: !navbarProfileMenuState,
+              },
+              "absolute top-16 right-0 bg-emerald-800 p-2 rounded-bl-3xl"
+            )}
+          >
+            <Link
+              href={"/profile"}
+              className={clsx("px-4 py-2 text-xl text-slate-50", {
+                "bg-emerald-900 rounded-full": pathname === "/profile",
+              })}
+            >
+              <p>Profile</p>
+            </Link>
+            <Link
+              href={"/profile"}
+              className={clsx("px-4 py-2 text-xl text-slate-50")}
+            >
+              <p>Logout</p>
+            </Link>
+          </div>
         </button>
       </div>
     </>
