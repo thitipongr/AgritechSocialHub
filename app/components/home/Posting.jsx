@@ -2,13 +2,12 @@ import React from "react";
 import ProfileImg from "../ProfileImg";
 
 const Posting = () => {
-  // หน้าสำหรับโพสต์ข้อความ
   return (
     <div className="rounded-lg bg-emerald-600 p-4 flex flex-row">
-      <ProfileImg />
+      <ProfileImg imgSrc="https://avatars.githubusercontent.com/u/144009672" />
       <textarea
-        className="w-full rounded-lg border-0 text-xl text-gray-900 placeholder:text-gray-400 focus:ring-1  sm:leading-6 bg-emerald-100 ml-4 mr-3 px-2 py-1"
-        placeholder="คุณคิดอะไรอยู่ ธิติพงษ์"
+        className="w-full h-10 rounded-lg border-0 text-xl text-gray-900 placeholder:text-gray-400 focus:ring-1 leading-8 bg-emerald-100 ml-4 mr-3 px-2 py-1"
+        placeholder="What's on your mind, Thitipong"
       ></textarea>
       <button>
         <svg

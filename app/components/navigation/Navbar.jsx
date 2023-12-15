@@ -105,7 +105,7 @@ const Navbar = () => {
               onClick={navbarProfileMenu}
               className="hidden sm:flex relative ml-4"
             >
-              <ProfileImg />
+              <ProfileImg imgSrc="https://avatars.githubusercontent.com/u/144009672" />
               <div
                 className={clsx(
                   {
@@ -138,7 +138,7 @@ const Navbar = () => {
           onClick={navbarProfileMenu}
           className="flex flex-row items-center sm:hidden"
         >
-          <ProfileImg />
+          <ProfileImg imgSrc="https://avatars.githubusercontent.com/u/144009672" />
           <div
             className={clsx(
               {
