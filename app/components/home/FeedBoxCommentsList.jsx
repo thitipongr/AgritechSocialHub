@@ -12,7 +12,7 @@ const FeedBoxCommentsList = ({ data }) => {
           <div key={index}>
             <div className="flex flex-row mt-2">
               <div className="mt-1">
-                {<ProfileImg imgSrc={comment.userImg} />}
+                {<ProfileImg imgSrc={comment.userImg} size={10} />}
               </div>
               <div className="ml-2 flex flex-col">
                 <div className="p-3 rounded-lg bg-emerald-100">
@@ -21,7 +21,7 @@ const FeedBoxCommentsList = ({ data }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row mt-1 ml-12 pl-3">
+            <div className="flex flex-row mt-1 ml-12 pl-3 items-center">
               <div className="text-slate-400 font-light mr-1">
                 <DatetoString date={comment.commentDate} />
               </div>

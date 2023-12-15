@@ -12,7 +12,7 @@ const FeedBox = ({ data }) => {
   return (
     <div className="rounded-lg bg-white border-2 p-4 flex flex-col">
       <div className="flex flex-row">
-        <ProfileImg imgSrc={userImg} />
+        <ProfileImg imgSrc={userImg} size={10} />
         <div className="ml-2">
           <div className="text-black font-semibold">{userName}</div>
           <div className="text-slate-400 font-light">

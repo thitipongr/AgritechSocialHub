@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex flex-row h-16 items-center p-4 bg-emerald-800 justify-between sm:justify-start sticky">
+      <div className="flex flex-row h-16 items-center p-4 bg-emerald-800 justify-between sm:justify-start sticky top-0">
         <button
           onClick={navbarMoreMenu}
           className="flex sm:hidden text-neutral-50"
@@ -105,7 +105,10 @@ const Navbar = () => {
               onClick={navbarProfileMenu}
               className="hidden sm:flex relative ml-4"
             >
-              <ProfileImg imgSrc="https://avatars.githubusercontent.com/u/144009672" />
+              <ProfileImg
+                imgSrc="https://avatars.githubusercontent.com/u/144009672"
+                size={10}
+              />
               <div
                 className={clsx(
                   {
@@ -138,7 +141,10 @@ const Navbar = () => {
           onClick={navbarProfileMenu}
           className="flex flex-row items-center sm:hidden"
         >
-          <ProfileImg imgSrc="https://avatars.githubusercontent.com/u/144009672" />
+          <ProfileImg
+            imgSrc="https://avatars.githubusercontent.com/u/144009672"
+            size={10}
+          />
           <div
             className={clsx(
               {

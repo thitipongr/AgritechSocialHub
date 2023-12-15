@@ -4,7 +4,10 @@ import ProfileImg from "../ProfileImg";
 const Posting = () => {
   return (
     <div className="rounded-lg bg-emerald-600 p-4 flex flex-row">
-      <ProfileImg imgSrc="https://avatars.githubusercontent.com/u/144009672" />
+      <ProfileImg
+        imgSrc="https://avatars.githubusercontent.com/u/144009672"
+        size={10}
+      />
       <textarea
         className="w-full h-10 rounded-lg border-0 text-xl text-gray-900 placeholder:text-gray-400 focus:ring-1 leading-8 bg-emerald-100 ml-4 mr-3 px-2 py-1"
         placeholder="What's on your mind, Thitipong"
