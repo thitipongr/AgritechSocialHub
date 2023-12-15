@@ -2,9 +2,12 @@ import React from "react";
 import ProfileImg from "../ProfileImg";
 import DatetoString from "../DatetoString";
 import ShortnessNum from "../ShortnessNum";
+import FeedBoxCommentsList from "./FeedBoxCommentsList";
+import FeedBoxComment from "./FeedBoxComment";
 
 const FeedBox = ({ data }) => {
-  const { userName, userImg, postDetail, postDate, like, share } = data;
+  const { userName, userImg, postDetail, postDate, like, share, comments } =
+    data;
 
   return (
     <div className="rounded-lg bg-white border-2 p-4 flex flex-col">
@@ -90,6 +93,8 @@ const FeedBox = ({ data }) => {
           Share
         </button>
       </div>
+      <FeedBoxCommentsList data={comments} />
+      <FeedBoxComment />
     </div>
   );
 };

@@ -12,6 +12,30 @@ const feedBox_initial = [
     postDate: "Sun Feb 26 2023 17:49:37 GMT+0700 (Indochina Time)",
     like: 2347,
     share: 569,
+    comments: [
+      {
+        userName: "Daisy Corkery",
+        userImg: "https://avatars.githubusercontent.com/u/144009673",
+        commentDetail: "eius rerum iusto",
+        commentDate: "Sun Feb 26 2023 18:43:32 GMT+0700 (Indochina Time)",
+        like: 328,
+      },
+      {
+        userName: "Donnie Hoppe",
+        userImg: "https://avatars.githubusercontent.com/u/144009674",
+        commentDetail: "enim laboriosam itaque",
+        commentDate: "Sun Feb 26 2023 18:47:31 GMT+0700 (Indochina Time)",
+        like: 38,
+      },
+      ,
+      {
+        userName: "Maribel",
+        userImg: "https://avatars.githubusercontent.com/u/144009675",
+        commentDetail: "vel vel adipisci",
+        commentDate: "Sun Feb 26 2023 18:50:35 GMT+0700 (Indochina Time)",
+        like: 23,
+      },
+    ],
   },
 ];
 
